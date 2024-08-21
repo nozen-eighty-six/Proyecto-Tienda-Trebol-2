@@ -1,0 +1,235 @@
+/*@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap");
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/*
+@font-face {
+  font-family: "Oswald", sans-serif;
+  font-family: "Poppins", sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap");
+}*/
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  border: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1000;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+.none {
+  display: none;
+}
+/* Estilos para el scroll */
+/* Barra de scroll */
+::-webkit-scrollbar {
+  width: 10px; /* Ancho de la barra de scroll */
+  height: 10px; /* altura de la barra de scroll */
+}
+
+/* Riel (track) del scroll */
+::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 4px;
+}
+
+/* Manija (thumb) del scroll */
+::-webkit-scrollbar-thumb {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo cuando se pasa el mouse sobre la manija del scroll */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #999999; /* Color de la manija del scroll al pasar el mouse */
+}
+
+/******* NAV ******/
+.nav-user * {
+  font-family: "Roboto", sans-serif;
+}
+
+/********* SLIDER *********/
+.slider-products img {
+  width: 100%;
+  height: 100%;
+}
+.slider-products .absolute span {
+  width: inherit;
+  height: inherit;
+}
+/*
+.scroll-container {
+  display: flex;
+  overflow-x: auto; /* Permite el desplazamiento horizontal 
+  white-space: nowrap; /* Evita que los elementos se ajusten en múltiples filas 
+  -webkit-overflow-scrolling: touch; /* Para una mejor experiencia en dispositivos táctiles 
+}*/
+
+/*
+.item {
+  flex: 0 0 auto; /* Asegura que los elementos no se ajusten al contenedor y mantengan su tamaño original 
+  width: 200px; /* Ajusta este valor según el ancho deseado para los elementos 
+}
+/*
+.item {
+  flex: 0 0 auto; /* Asegura que los elementos no se ajusten al contenedor y mantengan su tamaño original 
+
+  width: 200px; /* Ajusta este valor según el ancho deseado para los elementos 
+}*/
+
+/********* SLIDER-IMG *********/
+.show-index {
+  z-index: 10;
+}
+
+/********* CATEGORIES SECTION *********/
+.flex-categories-section > div {
+  height: 50%;
+  width: 25%;
+}
+
+/********* PRODUCTS SECTION *********/
+.grid-product-subcategory {
+  display: grid;
+  grid-template-columns: 15% 85%;
+  grid-template-rows: 25% 50% 25%;
+}
+.grid-product-subcategory .title-product-sub {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}
+
+.grid-product-subcategory .filter {
+  grid-row: 2/3;
+}
+.grid-product-subcategory .products-sub {
+  grid-column: 2/3;
+  grid-row: 2 / 4;
+}
+/**/
+.slider-container {
+  width: 95%;
+  position: relative;
+}
+
+.slider-track {
+  width: 100%;
+  height: 1.5px;
+  margin: 0;
+  padding: 0;
+  background: #333;
+  position: absolute;
+  top: 50%;
+  transform: translateY(500%);
+}
+
+.slider-thumb {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  background: #333;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  background: #333;
+  transform: translateY(30%);
+  transform: translateX(-50%);
+  transform: translate(-55%, 30%);
+}
+
+.slider {
+  width: 100%;
+  position: absolute;
+  pointer-events: none;
+}
+
+.slider .relative input[type="range"] {
+  width: 100%;
+  height: 100px;
+  display: none;
+  margin: 0;
+  padding: 0;
+  pointer-events: auto;
+  position: absolute;
+  background: none;
+}
+
+/***************** FILTERBY *****************/
+.fade-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 250ms, transform 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.is-active {
+ /* padding-bottom: 0.5rem;
+  border-bottom: thin solid #656565;
+*/
+  font-weight: bold;
+  }
+
+/********* CARTPREVIEW *********/
+.show-cart {
+  transform: translateX(0);
+}
+
+.hide-cart {
+  transform: translateX(100%);
+}
+
+.duration-3500 {
+  transition-duration: 3500ms;
+}
+
+/********* SHOPPING-CART *********/
+.shopping-cart {
+  width: 65%;
+  margin: 0 auto;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  gap: 2rem;
+}
+
+.product-cart {
+  grid-column: 1/2;
+}
+
+.cart-summary {
+  grid-column: 2/3;
+}
