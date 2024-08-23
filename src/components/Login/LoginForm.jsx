@@ -38,6 +38,7 @@ const LoginForm = () => {
   const [validForm, setValidForm] = useState(null);
   const [loader, setLoader] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -135,7 +136,9 @@ const LoginForm = () => {
 
     if (user.roles[0].name === "ADMIN") {
       console.log("Admin");
-      setTimeout(() => {}, 2500);
+      setTimeout(() => {
+        navigate("/admin/user");
+      }, 2500);
     } else {
       console.log("User");
       setTimeout(() => {
