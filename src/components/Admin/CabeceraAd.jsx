@@ -47,39 +47,60 @@ const CabeceraAd = () => {
 
           <NavAdmin handleMenuAdmin={handleMenuAdmin} cloud={cloud} />
 
-          <div className="content-usuario">
-            <div className={`linea ${cloud && "oculto-linea"}`}></div>
+          <div className={`content-usuario ${!cloud ? "w-54" : "w-13"} `}>
+            <div className={`linea ${cloud && "oculto-linea mb-2"}`}></div>
 
-            <div className="modo-oscuro">
+            <div
+              className={`modo-oscuro w-full flex ${
+                !cloud ? "justify-between" : "justify-center"
+              }`}
+            >
               <div
-                className={`info ${cloud && "cursor-pointer"}`}
+                className={`info ${cloud && "cursor-pointer cloud"}`}
                 onClick={handleThemeMode}
               >
-                <ion-icon name="moon-outline"></ion-icon>
-                <span className={`${cloud && "oculto"}`}>Drak Mode</span>
+                {/*Revisar que cuando este activo variable cloud, que se achique 
+                el width del contenedor de dark mode y log out
+                */}
+                <ion-icon
+                  name="moon-outline"
+                  className={`w-full h-full ${cloud && "cloud"}`}
+                ></ion-icon>
+                {!cloud && (
+                  <span className={`${cloud && "oculto"}`}>Drak Mode</span>
+                )}
               </div>
-              <div className="switch" onClick={handleThemeMode}>
-                <div className="base">
-                  <div className="circulo"></div>
+              {!cloud && (
+                <div className="switch" onClick={handleThemeMode}>
+                  <div className="base">
+                    <div className="circulo"></div>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
 
-            <div className="usuario">
-              <div className="info-usuario">
-                <div className="nombre-email">
-                  <span className={`nombre ${cloud && "oculto"}`}>
-                    {state.usuario?.name}
-                  </span>{" "}
-                  <span className={`email ${cloud && "oculto"}`}>
-                    {state.usuario?.email}
-                  </span>
-                </div>
+            <div className={`usuario ${cloud ? "w-12 h-11" : "w-full"}`}>
+              <div
+                className={`h-full flex items-center   overflow-hidden ${
+                  cloud ? "justify-center cloud w-13 " : "w-full justify-between"
+                } `}
+              >
+                {!cloud && (
+                  <div className="nombre-email">
+                    <span className={`nombre ${cloud && "oculto"}`}>
+                      {state.usuario?.name}
+                    </span>{" "}
+                    <span className={`email ${cloud && "oculto"}`}>
+                      {state.usuario?.email}
+                    </span>
+                  </div>
+                )}
                 <ion-icon
                   name="ellipsis-vertical-outline"
-                  className="abrir-usuario"
+                  className={`abrir-usuario ${cloud && "cloud"}`}
                   style={{ cursor: "pointer" }}
                   onClick={handleClicLogout}
+                  title="Log out"
                 ></ion-icon>
               </div>
             </div>

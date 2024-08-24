@@ -108,6 +108,9 @@ body.body-ad {
   opacity: 0;
   width: 0;
 }
+.oculto {
+  display: none;
+}
 
 /*------------> Nombre de la página */
 .barra-lateral .nombre-pagina {
@@ -210,11 +213,8 @@ body.body-ad {
 
 /*----------------> Modo Oscuro*/
 .barra-lateral .modo-oscuro {
-  width: 100%;
   margin-bottom: 10px;
   border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
 }
 .barra-lateral .modo-oscuro .info {
   width: 150px;
@@ -267,7 +267,6 @@ body.body-ad {
 
 /*---------------> Usuario*/
 .barra-lateral .usuario {
-  width: 100%;
   display: flex;
 }
 .barra-lateral .usuario img {
@@ -276,12 +275,7 @@ body.body-ad {
   border-radius: 10px;
 }
 .barra-lateral .usuario .info-usuario {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   color: var(--color-texto);
-  overflow: hidden;
 }
 .barra-lateral .usuario .nombre-email {
   width: 100%;
@@ -408,6 +402,12 @@ main.min-main {
 
 .content-usuario {
   position: absolute;
-  width: 220px;
   bottom: 5.5rem;
+}
+
+/**** CLOUD  *****/
+.cloud:hover {
+  background-color: var(--color-menu-hover);
+  color: var(--color-menu-hover-texto);
+  border-radius: 10px;
 }

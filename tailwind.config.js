@@ -58,6 +58,12 @@ export default {
         ".min-vh-95": {
           height: "95vh",
         },
+        ".w-13": {
+          width: "50px",
+        },
+        ".w-54": {
+          width: "220px",
+        },
 
         ".w-90": {
           width: "90%",
