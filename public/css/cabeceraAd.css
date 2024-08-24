@@ -271,6 +271,9 @@ body.body-ad {
 .usuario .modo-oscuro {
   color: var(--color-texto-menu);
 }
+.usuario .modo-oscuro span {
+  color: var(--color-menu-hover-texto);
+}
 
 /*---------------> Usuario*/
 .barra-lateral .usuario {

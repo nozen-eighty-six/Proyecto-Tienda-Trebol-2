@@ -23,7 +23,8 @@ const NavAdmin = ({ handleMenuAdmin, cloud }) => {
         <li>
           <NavLink to="/admin/usuarios" data-ruta="/usuarios" data-scroll-spy>
             {" "}
-            <ion-icon name="person"></ion-icon> <span>Usuarios</span>
+            <ion-icon name="person"></ion-icon>{" "}
+            <span className={`${cloud && "oculto"}  `}>Usuarios</span>
           </NavLink>
         </li>
         <li>

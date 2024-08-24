@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const useCabeceraAd = () => {
   const [mAdmin, setMAdmin] = useState(false);
   const [cloud, setCloud] = useState(false);
-
+  const [userInfo, setUserInfo] = useState(false);
   const navigate = useNavigate();
 
   const handleMenuAdmin = () => {
@@ -52,7 +52,12 @@ const useCabeceraAd = () => {
   const handleClicLogout = () => {
     const buttonLogout = document.querySelector(".btn-logout");
 
-    buttonLogout.classList.toggle("none");
+    if (buttonLogout) {
+      buttonLogout.classList.toggle("none");
+    } else {
+      setUserInfo(!userInfo);
+      console.log("No se encontró el botón de logout");
+    }
   };
 
   const cerrarSesion = (e) => {
@@ -68,6 +73,7 @@ const useCabeceraAd = () => {
     handleMenuAdmin,
     cloud,
     handleCloudHide,
+    userInfo,
     toggleDarkMode,
     handleClicLogout,
     handleThemeMode,

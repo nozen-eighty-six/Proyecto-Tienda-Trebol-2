@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
-import NavAdmin from "./NavAdmin";
+import { useEffect } from "react";
+
 import { useSelector } from "react-redux";
-import "../../../public/css/cabeceraAd.css";
-import useCabeceraAd from "../../hooks/helpCabeceraAd";
+import "../../../../public/css/cabeceraAd.css";
+import useCabeceraAd from "../../../hooks/helpCabeceraAd";
+import NavAdmin from "./NavAdmin";
+import UserInfo from "./UserInfo";
 const CabeceraAd = () => {
   const state = useSelector((state) => state.user);
   const {
@@ -10,6 +12,7 @@ const CabeceraAd = () => {
     handleMenuAdmin,
     cloud,
     handleCloudHide,
+    userInfo,
     handleClicLogout,
     handleThemeMode,
     cerrarSesion,
@@ -88,14 +91,12 @@ const CabeceraAd = () => {
                 } `}
               >
                 {!cloud && (
-                  <div className="nombre-email">
-                    <span className={`nombre ${cloud && "oculto"}`}>
-                      {state.usuario?.name}
-                    </span>{" "}
-                    <span className={`email ${cloud && "oculto"}`}>
-                      {state.usuario?.email}
-                    </span>
-                  </div>
+                  <UserInfo
+                    name={state.usuario.name}
+                    email={state.usuario.email}
+                    cloud={cloud}
+                    hasButton={false}
+                  />
                 )}
                 <ion-icon
                   name="ellipsis-vertical-outline"
@@ -107,19 +108,29 @@ const CabeceraAd = () => {
               </div>
             </div>
           </div>
-          <button
-            /*Me falta que cuando se oculte la barra, que me muestre
+          {userInfo && cloud && (
+            <UserInfo
+              name={state.usuario.name}
+              email={state.usuario.email}
+              hasButton={true}
+              cerrarSesion={cerrarSesion}
+            />
+          )}
+          {!cloud && (
+            <button
+              /*Me falta que cuando se oculte la barra, que me muestre
                       el ícono para log out, falta subir los cambios al repo
                       */
-            /*onClick="location.href='/usuario/cerrar'"*/
+              /*onClick="location.href='/usuario/cerrar'"*/
 
-            className="none btn-logout"
-            data-scroll-spy
-            onClick={cerrarSesion}
-          >
-            <ion-icon name="log-out-outline"></ion-icon>
-            Salir
-          </button>
+              className="none btn-logout"
+              data-scroll-spy
+              onClick={cerrarSesion}
+            >
+              <ion-icon name="log-out-outline"></ion-icon>
+              Salir
+            </button>
+          )}
         </div>
       </div>
     </>

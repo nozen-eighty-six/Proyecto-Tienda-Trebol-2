@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import CabeceraAd from "../Admin/CabeceraAd";
+import CabeceraAd from "../Admin/adminPanel/CabeceraAd";
 
 const PrivateRoutes = () => {
   const state = useSelector((state) => state.user);
