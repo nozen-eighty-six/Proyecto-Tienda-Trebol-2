@@ -82,7 +82,9 @@ const CabeceraAd = () => {
             <div className={`usuario ${cloud ? "w-12 h-11" : "w-full"}`}>
               <div
                 className={`h-full flex items-center   overflow-hidden ${
-                  cloud ? "justify-center cloud w-13 " : "w-full justify-between"
+                  cloud
+                    ? "justify-center cloud w-13 modo-oscuro"
+                    : "w-full justify-between"
                 } `}
               >
                 {!cloud && (

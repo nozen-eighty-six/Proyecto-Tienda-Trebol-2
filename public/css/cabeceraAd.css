@@ -222,6 +222,9 @@ body.body-ad {
   overflow: hidden;
   display: flex;
   align-items: center;
+}
+
+.modo-oscuro .info {
   color: var(--color-texto-menu);
 }
 .barra-lateral .modo-oscuro ion-icon {
@@ -263,6 +266,10 @@ body.body-ad {
 }
 .barra-lateral .modo-oscuro .circulo.prendido {
   left: 15px;
+}
+
+.usuario .modo-oscuro {
+  color: var(--color-texto-menu);
 }
 
 /*---------------> Usuario*/
