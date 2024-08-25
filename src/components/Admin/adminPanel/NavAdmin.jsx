@@ -21,7 +21,7 @@ const NavAdmin = ({ handleMenuAdmin, cloud }) => {
     <nav className="navegacion-ad" onClick={handleClick}>
       <ul>
         <li>
-          <NavLink to="/admin/usuarios" data-ruta="/usuarios" data-scroll-spy>
+          <NavLink to="/admin/users" data-ruta="/users" data-scroll-spy>
             {" "}
             <ion-icon name="person"></ion-icon>{" "}
             <span className={`${cloud && "oculto"}  `}>Usuarios</span>

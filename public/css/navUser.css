@@ -197,11 +197,11 @@ img {
   transform: translateY(-10px);
 }
 .is-active {
- /* padding-bottom: 0.5rem;
+  /* padding-bottom: 0.5rem;
   border-bottom: thin solid #656565;
 */
   font-weight: bold;
-  }
+}
 
 /********* CARTPREVIEW *********/
 .show-cart {
@@ -232,4 +232,62 @@ img {
 
 .cart-summary {
   grid-column: 2/3;
+}
+
+/*** *****TABLES **** **/
+.table {
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+.table-content {
+  background-color: #fff;
+}
+
+.table thead th {
+  color: #495057;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table-bordered {
+  border: 1px solid #dee2e6;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #dee2e6;
+}
+
+.table-dark {
+  color: #fff;
+  background-color: #212529;
+}
+
+.table-dark th,
+.table-dark td,
+.table-dark thead th {
+  border-color: #32383e;
+}
+
+.table-dark.table-bordered {
+  border: 0;
+}
+
+.table-dark.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table-dark.table-hover tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.075);
+}
+
+.table td button {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+.table th,
+.table td {
+  padding: 0.75rem;
 }

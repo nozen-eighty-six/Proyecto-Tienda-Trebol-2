@@ -87,7 +87,7 @@ const CabeceraAd = () => {
                 className={`h-full flex items-center   overflow-hidden ${
                   cloud
                     ? "justify-center cloud w-13 modo-oscuro"
-                    : "w-full justify-between"
+                    : "w-full justify-between modo-oscuro"
                 } `}
               >
                 {!cloud && (

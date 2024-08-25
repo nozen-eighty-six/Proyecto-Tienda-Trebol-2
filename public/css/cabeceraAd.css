@@ -274,6 +274,9 @@ body.body-ad {
 .usuario .modo-oscuro span {
   color: var(--color-menu-hover-texto);
 }
+.usuario .modo-oscuro ion-icon:hover {
+  color: var(--color-menu-hover-texto);
+}
 
 /*---------------> Usuario*/
 .barra-lateral .usuario {
