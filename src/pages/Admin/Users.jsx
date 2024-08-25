@@ -5,8 +5,11 @@ import { SERVER_URL } from "../../Const/server";
 import { TOKEN } from "../../Const/token";
 import { useMatch } from "react-router-dom";
 import { currentSection } from "../../services/currentSection";
+import useCabeceraAd from "../../hooks/helpCabeceraAd";
+import { useSelector } from "react-redux";
 
 const Users = () => {
+  const state = useSelector((state) => state.cloud);
   const [data, setData] = useState([]);
   const match = useMatch("/admin/*");
   const urlName = match.params["*"];
@@ -29,7 +32,11 @@ const Users = () => {
   }, []);
 
   return (
-    <main className="lg:m-l-63 relative min-h-screen">
+    <main
+      className={`lg:m-l-63 ${
+        state.oculto && "min-main"
+      } relative min-h-screen`}
+    >
       <div>
         <h2 className="w-full p-2 text-3xl font-bold mb-4">Admin | Usuarios</h2>
       </div>

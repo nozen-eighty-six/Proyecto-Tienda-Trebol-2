@@ -1,22 +1,28 @@
 import { useEffect } from "react";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "../../../../public/css/cabeceraAd.css";
 import useCabeceraAd from "../../../hooks/helpCabeceraAd";
 import NavAdmin from "./NavAdmin";
 import UserInfo from "./UserInfo";
+import { handleCloud } from "../../../redux/hideCloudSlice";
 const CabeceraAd = () => {
   const state = useSelector((state) => state.user);
+  const stateCloud = useSelector((state) => state.cloud);
+  const dispatch = useDispatch();
   const {
     mAdmin,
     handleMenuAdmin,
-    cloud,
-    handleCloudHide,
+
     userInfo,
     handleClicLogout,
     handleThemeMode,
     cerrarSesion,
   } = useCabeceraAd();
+
+  const handleCloudHide = () => {
+    dispatch(handleCloud());
+  };
 
   useEffect(() => {
     document.body.classList.add("body-ad");
@@ -38,28 +44,41 @@ const CabeceraAd = () => {
       >
         <div
           className={`barra-lateral lg:flex lg:left-0 ${mAdmin && "left-0"} ${
-            cloud && "mini-barra-lateral"
+            stateCloud.oculto && "mini-barra-lateral"
           }`}
         >
           <div>
             <div className="nombre-pagina" onClick={handleCloudHide}>
               <ion-icon id="cloud" name="cloud-outline"></ion-icon>
-              <span className={`${cloud && "oculto"} `}>Top Moda</span>
+              <span className={`${stateCloud.oculto && "oculto"} `}>
+                Top Moda
+              </span>
             </div>
           </div>
 
-          <NavAdmin handleMenuAdmin={handleMenuAdmin} cloud={cloud} />
+          <NavAdmin
+            handleMenuAdmin={handleMenuAdmin}
+            cloud={stateCloud.oculto}
+          />
 
-          <div className={`content-usuario ${!cloud ? "w-54" : "w-13"} `}>
-            <div className={`linea ${cloud && "oculto-linea mb-2"}`}></div>
+          <div
+            className={`content-usuario ${
+              !stateCloud.oculto ? "w-54" : "w-13"
+            } `}
+          >
+            <div
+              className={`linea ${stateCloud.oculto && "oculto-linea mb-2"}`}
+            ></div>
 
             <div
               className={`modo-oscuro w-full flex ${
-                !cloud ? "justify-between" : "justify-center"
+                !stateCloud.oculto ? "justify-between" : "justify-center"
               }`}
             >
               <div
-                className={`info ${cloud && "cursor-pointer cloud"}`}
+                className={`info ${
+                  stateCloud.oculto && "cursor-pointer cloud"
+                }`}
                 onClick={handleThemeMode}
               >
                 {/*Revisar que cuando este activo variable cloud, que se achique 
@@ -67,13 +86,15 @@ const CabeceraAd = () => {
                 */}
                 <ion-icon
                   name="moon-outline"
-                  className={`w-full h-full ${cloud && "cloud"}`}
+                  className={`w-full h-full ${stateCloud.oculto && "cloud"}`}
                 ></ion-icon>
-                {!cloud && (
-                  <span className={`${cloud && "oculto"}`}>Drak Mode</span>
+                {!stateCloud.oculto && (
+                  <span className={`${stateCloud.oculto && "oculto"}`}>
+                    Drak Mode
+                  </span>
                 )}
               </div>
-              {!cloud && (
+              {!stateCloud.oculto && (
                 <div className="switch" onClick={handleThemeMode}>
                   <div className="base">
                     <div className="circulo"></div>
@@ -82,25 +103,29 @@ const CabeceraAd = () => {
               )}
             </div>
 
-            <div className={`usuario ${cloud ? "w-12 h-11" : "w-full"}`}>
+            <div
+              className={`usuario ${
+                stateCloud.oculto ? "w-12 h-11" : "w-full"
+              }`}
+            >
               <div
                 className={`h-full flex items-center   overflow-hidden ${
-                  cloud
+                  stateCloud.oculto
                     ? "justify-center cloud w-13 modo-oscuro"
                     : "w-full justify-between modo-oscuro"
                 } `}
               >
-                {!cloud && (
+                {!stateCloud.oculto && (
                   <UserInfo
                     name={state.usuario.name}
                     email={state.usuario.email}
-                    cloud={cloud}
+                    cloud={stateCloud.oculto}
                     hasButton={false}
                   />
                 )}
                 <ion-icon
                   name="ellipsis-vertical-outline"
-                  className={`abrir-usuario ${cloud && "cloud"}`}
+                  className={`abrir-usuario ${stateCloud.oculto && "cloud"}`}
                   style={{ cursor: "pointer" }}
                   onClick={handleClicLogout}
                   title="Log out"
@@ -108,7 +133,7 @@ const CabeceraAd = () => {
               </div>
             </div>
           </div>
-          {userInfo && cloud && (
+          {userInfo && stateCloud.oculto && (
             <UserInfo
               name={state.usuario.name}
               email={state.usuario.email}
@@ -116,7 +141,7 @@ const CabeceraAd = () => {
               cerrarSesion={cerrarSesion}
             />
           )}
-          {!cloud && (
+          {!stateCloud.oculto && (
             <button
               /*Me falta que cuando se oculte la barra, que me muestre
                       el ícono para log out, falta subir los cambios al repo

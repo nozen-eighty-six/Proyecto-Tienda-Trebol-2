@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const useCabeceraAd = () => {
   const [mAdmin, setMAdmin] = useState(false);
-  const [cloud, setCloud] = useState(false);
+  //const [cloud, setCloud] = useState(false);
   const [userInfo, setUserInfo] = useState(false);
   const navigate = useNavigate();
 
@@ -19,19 +19,19 @@ const useCabeceraAd = () => {
     if (mAdmin == true) setMAdmin(!mAdmin);
   };
 
-  const handleCloudHide = () => {
-    // const linea = document.querySelector(".linea");
-    //const barraLateral = document.querySelector(".barra-lateral");
-    //barraLateral.classList.toggle("mini-barra-lateral");
-    // const spans = document.querySelectorAll("span");
-    // const main = document.querySelector("main");
-    // main.classList.toggle("min-main");
-    /* spans.forEach((span) => {
+  //  const handleCloudHide = () => {
+  // const linea = document.querySelector(".linea");
+  //const barraLateral = document.querySelector(".barra-lateral");
+  //barraLateral.classList.toggle("mini-barra-lateral");
+  // const spans = document.querySelectorAll("span");
+  // const main = document.querySelector("main");
+  // main.classList.toggle("min-main");
+  /* spans.forEach((span) => {
       span.classList.toggle("oculto");
     });*/
-    //linea.classList.toggle("oculto-linea");
-    setCloud(!cloud);
-  };
+  //linea.classList.toggle("oculto-linea");
+  //  setCloud(!cloud);
+  // };
 
   const toggleDarkMode = () => {
     const modoOscuro = document.querySelector(".modo-oscuro");
@@ -71,8 +71,7 @@ const useCabeceraAd = () => {
   return {
     mAdmin,
     handleMenuAdmin,
-    cloud,
-    handleCloudHide,
+
     userInfo,
     toggleDarkMode,
     handleClicLogout,
