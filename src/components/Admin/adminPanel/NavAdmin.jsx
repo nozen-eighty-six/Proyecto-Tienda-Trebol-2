@@ -29,7 +29,7 @@ const NavAdmin = ({ handleMenuAdmin, cloud }) => {
         </li>
         <li>
           <NavLink
-            to="/admin/proveedores"
+            to="/admin/suppliers"
             data-ruta="/proveedores"
             data-controlador="proveedores"
             data-scroll-spy
@@ -42,7 +42,7 @@ const NavAdmin = ({ handleMenuAdmin, cloud }) => {
         </li>
         <li>
           <NavLink
-            to="/admin/productos"
+            to="/admin/products"
             data-controlador="productos"
             data-table="tablaProductos"
             data-scroll-spy
@@ -55,7 +55,7 @@ const NavAdmin = ({ handleMenuAdmin, cloud }) => {
         </li>
         <li>
           <NavLink
-            to="/admin/marcas"
+            to="/admin/subcategories"
             data-controlador="marcas"
             data-table="tablaMarcas"
             data-scroll-spy
@@ -63,12 +63,12 @@ const NavAdmin = ({ handleMenuAdmin, cloud }) => {
           >
             {" "}
             <ion-icon name="pricetag"></ion-icon>{" "}
-            <span className={`${cloud && "oculto"}  `}>Marcas</span>
+            <span className={`${cloud && "oculto"}  `}>SubCategorías</span>
           </NavLink>
         </li>
         <li>
           <NavLink
-            to="/admin/categorias"
+            to="/admin/categories"
             data-controlador="categorias"
             data-table="tablaCategorias"
             data-scroll-spy
@@ -81,7 +81,21 @@ const NavAdmin = ({ handleMenuAdmin, cloud }) => {
         </li>
         <li>
           <NavLink
-            to="/admin/pedidos"
+            to="/admin/discounts"
+            data-controlador="categorias"
+            data-table="tablaCategorias"
+            data-scroll-spy
+            onClick={handleMenuAdmin}
+          >
+            {" "}
+            <ion-icon name="list"></ion-icon>{" "}
+            <span className={`${cloud && "oculto"}  `}>Descuento</span>
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/admin/orders"
             data-controlador="pedidos"
             data-table="tablaPedidos"
             data-scroll-spy
@@ -91,9 +105,10 @@ const NavAdmin = ({ handleMenuAdmin, cloud }) => {
             <span className={`${cloud && "oculto"}  `}>Pedidos</span>{" "}
           </NavLink>
         </li>
+        {/*Me falta probar las secciones agregadas recientemente */}
         <li>
           <NavLink
-            to="/admin/entradas"
+            to="/admin/store-entrace"
             data-controlador="entradas"
             data-table="tablaEntradas"
             data-scroll-spy

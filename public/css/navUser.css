@@ -291,3 +291,11 @@ img {
 .table td {
   padding: 0.75rem;
 }
+/****************** TABLE ELEMENTS******************/
+#subcategory-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1; /* Número máximo de líneas a mostrar */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,22 +1,18 @@
+import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import helpHttpT from "../../hooks/helpHttpT";
 import { SERVER_URL } from "../../Const/server";
 import { TOKEN } from "../../Const/token";
-import { useMatch } from "react-router-dom";
-import { currentSection } from "../../services/currentSection";
-import useCabeceraAd from "../../hooks/helpCabeceraAd";
-import { useSelector } from "react-redux";
 import SearchCreationSection from "../../components/Admin/userSection/SearchCreationSection";
-import UserSection from "../../components/Admin/userSection/UserSection";
+import SupplierSection from "../../components/Admin/supplierSection/SupplierSection";
 
-const Users = () => {
-  const state = useSelector((state) => state.cloud);
+const Suppliers = () => {
+  const stateCloud = useSelector((state) => state.cloud);
   const [data, setData] = useState([]);
-  const match = useMatch("/admin/*");
-  const urlName = match.params["*"];
+
   useEffect(() => {
     helpHttpT()
-      .get(SERVER_URL + "user", {
+      .get(SERVER_URL + "supplier", {
         headers: {
           Authorization: `Bearer ${TOKEN}`,
         },
@@ -28,19 +24,23 @@ const Users = () => {
           console.log("Error al obtener los datos");
         }
       });
-    console.log(urlName);
-    currentSection("/" + urlName);
   }, []);
 
   return (
     <main
       className={`lg:m-l-63 ${
-        state.oculto && "min-main"
+        stateCloud.oculto && "min-main"
       } relative min-h-screen`}
     >
-      <UserSection data={data} setData={setData} />
+      {" "}
+      <div>
+        <h2 className="w-full p-2 text-3xl font-bold mb-4">
+          Admin | Proveedores
+        </h2>
+        <SupplierSection data={data} setData={setData} />
+      </div>
     </main>
   );
 };
 
-export default Users;
+export default Suppliers;
